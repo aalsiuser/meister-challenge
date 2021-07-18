@@ -6,3 +6,16 @@ class Post < ApplicationRecord
 
   enum status: %i[draft inprogress completed published]
 end
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :bigint           not null, primary key
+#  title      :string(255)
+#  summary    :text(65535)
+#  content    :text(65535)
+#  author_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  status     :integer          default("draft")
