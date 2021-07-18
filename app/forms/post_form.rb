@@ -22,7 +22,7 @@ class PostForm
   private
 
   def build_post
-    id.present? Post.find(id) : Post.new
+    id.present? ? Post.find(id) : Post.new
   end
 
   def save
