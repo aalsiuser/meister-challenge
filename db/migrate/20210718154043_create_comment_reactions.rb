@@ -3,7 +3,7 @@ class CreateCommentReactions < ActiveRecord::Migration[6.1]
     create_table :comment_reactions do |t|
       t.references :user, index: true
       t.references :comment, index: true
-      t.integer :reaction
+      t.integer :reaction_type
 
       t.timestamps
     end

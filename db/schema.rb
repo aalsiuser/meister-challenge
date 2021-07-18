@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_154043) do
   create_table "comment_reactions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "comment_id"
-    t.integer "reaction"
+    t.integer "reaction_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_comment_reactions_on_comment_id"

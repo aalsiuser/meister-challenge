@@ -11,7 +11,8 @@ User.create(
                 { first_name: 'Joe', last_name: '', email: 'joe@gmail.com' },
                 { first_name: 'Ross', last_name: 'Geller', email: 'ross@gmail.com' },
                 { first_name: 'Chandler', last_name: 'Bing', email: 'chandler@gmail.com' },
-                { first_name: 'Rachel', last_name: 'Green', email: 'rachel@gmail.com' }
+                { first_name: 'Rachel', last_name: 'Green', email: 'rachel@gmail.com' },
+                { first_name: 'Erica', last_name: '', email: 'erica@gmail.com' }
               ]
             )
 
@@ -24,6 +25,7 @@ Post.create(
               { title: 'Blog Title 5', content: 'Content 5', summary: 'Summary 5', author_id: 3, status: 3 }
             ]
            )
+
 Comment.create(
                 [
                   { user_id: 4, post_id: 1, content: 'Comment 1' },
@@ -39,3 +41,20 @@ Comment.create(
                   { user_id: 1, post_id: 5, content: 'Comment 11' }
                 ]
               )
+
+CommentReaction.create(
+                        [
+                          { user_id: 5, comment_id: 1, reaction_type: 0 },
+                          { user_id: 5, comment_id: 2, reaction_type: 1 },
+                          { user_id: 6, comment_id: 3, reaction_type: 2 },
+                          { user_id: 6, comment_id: 4, reaction_type: 0 },
+                          { user_id: 5, comment_id: 4, reaction_type: 1 },
+                          { user_id: 5, comment_id: 7, reaction_type: 2 },
+                          { user_id: 6, comment_id: 8, reaction_type: 1 },
+                          { user_id: 5, comment_id: 3, reaction_type: 2 },
+                          { user_id: 6, comment_id: 2, reaction_type: 1 },
+                          { user_id: 5, comment_id: 1, reaction_type: 2 },
+                          { user_id: 6, comment_id: 7, reaction_type: 0 },
+                          { user_id: 6, comment_id: 8, reaction_type: 1 }
+                        ]
+                      )

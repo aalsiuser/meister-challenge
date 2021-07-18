@@ -13,20 +13,20 @@ class CommentForm
 
   def save
     @record = build_comment
-     # Assign attributes for post
+     # Assign attributes for Comment
      assign_attributes
      @record.save!
   end
 
   private
 
-  def build_post
+  def build_comment
     id.present? ? Comment.find(id) : Comment.new
   end
 
   # TODO: Need to add condition for post_id
-  def save
-    @record.assing_attributes(
+  def assign_attributes
+    @record.assign_attributes(
       content: content,
       user_id: user_id,
       post_id: post_id

@@ -25,8 +25,8 @@ class PostForm
     id.present? ? Post.find(id) : Post.new
   end
 
-  def save
-    @record.assing_attributes(
+  def assign_attributes
+    @record.assign_attributes(
       title: title,
       content: content,
       summary: summary,

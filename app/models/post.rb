@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   validates_presence_of :title, :content, :summary
+  validates_uniqueness_of :title
 
   belongs_to :user, foreign_key: :author_id
   has_many :comments, dependent: :destroy

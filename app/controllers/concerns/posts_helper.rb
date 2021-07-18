@@ -1,6 +1,8 @@
 module PostsHelper
-  def create_update_post(params)
-    form = PostForm.new(params)
+  include ActiveSupport::Concern
+
+  def create_update_post
+    form = PostForm.new(**post_params)
     form.save
     form.record
   end

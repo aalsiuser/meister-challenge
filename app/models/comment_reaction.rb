@@ -1,8 +1,9 @@
 class CommentReaction < ApplicationRecord
-  belongs_to :comment_id
-  belongs_to :user_id
+  validates_presence_of :reaction_type
+  belongs_to :comment
+  belongs_to :user
 
-  enum reaction: [:smile, :like, :thumbs_up]
+  enum reaction_type: %i[like smile thumbs_up]
 end
 
 # == Schema Information
@@ -12,7 +13,7 @@ end
 #  id         :bigint           not null, primary key
 #  user_id    :bigint
 #  comment_id :bigint
-#  reaction   :integer
+#  type       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
