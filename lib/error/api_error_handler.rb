@@ -25,10 +25,6 @@ module Error
         respond(:data_error, 422, e.to_s)
       end
 
-      rescue_from ForbiddenError do |e|
-        respond(:forbidden, 403, e.to_s)
-      end
-
       rescue_from ArgumentError do |e|
         respond(:argument_error, 422, e.to_s)
       end
