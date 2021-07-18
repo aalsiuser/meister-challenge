@@ -9,7 +9,7 @@ class Api::V1::CommentsController < ApiController
 
   # GET /api/v1/comments/:id
   def show
-    render json:@comment
+    render json: @comment
   end
 
   # POST /api/v1/posts/:post_id/comments
