@@ -5,7 +5,7 @@ class Api::V1::CommentsController < ApiController
 
   # GET /api/v1/posts/:post_id/comments
   def index
-    comments = Comment.where(post_id: params[:post_id]).all
+    comments = Post.find_by(id: params[:post_id]).comments
     render json: comments
   end
 
