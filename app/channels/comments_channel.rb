@@ -1,9 +1,9 @@
 class CommentsChannel < ApplicationCable::Channel
-  def subscribed
+  def follow(data)
     # when new comment is created we get post_id in params
     # When comment is update we get post_id and comment_id in params
-    return unless params[:post_id].present?
+    return unless data['post_id'].present?
 
-    stream_from "post:#{params[:post_id]}:comments"
+    stream_from "post:#{data['post_id']}:comments"
   end
 end

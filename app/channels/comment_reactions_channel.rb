@@ -1,7 +1,7 @@
 class CommentReactionsChannel < ApplicationCable::Channel
-  def subscribed
-    return unless params[:comment_id].present?
+  def follow(data)
+    return unless data['comment_id'].present?
 
-    stream_from "comment:#{params[:comment_id]}:reactions"
+    stream_from "comment:#{data['comment_id']}:reactions"
   end
 end
