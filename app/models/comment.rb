@@ -1,7 +1,23 @@
 class Comment < ApplicationRecord
+  validates_presence_of :content
+
   belongs_to :user
   belongs_to :post
   has_many :comment_reactions, dependent: :destroy
+
+  after_create_commit :broadcast_notification
+
+  def broadcast_notification
+    payload = {
+      id: id,
+      post_id: post.id,
+      user_name: user.first_name,
+      content: content,
+      comment_reactions: comment_reactions
+    }
+
+    ActionCable.server.broadcast("post:#{post_id}:comments", payload)
+  end
 end
 
 # == Schema Information

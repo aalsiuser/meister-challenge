@@ -6,6 +6,12 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   enum status: %i[draft inprogress completed published]
+
+  after_update :broadcast_notification
+
+  def broadcast_notification
+    ActionCable.server.broadcast("post_#{id}", self)
+  end
 end
 
 # == Schema Information
