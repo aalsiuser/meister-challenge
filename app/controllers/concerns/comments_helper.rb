@@ -1,4 +1,6 @@
-module CommentHelper
+# frozen_string_literal: true
+
+module CommentsHelper
   include ActiveSupport::Concern
 
   def create_update_comment

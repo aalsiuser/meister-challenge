@@ -5,18 +5,12 @@ class Comment < ApplicationRecord
   belongs_to :post
   has_many :comment_reactions, dependent: :destroy
 
-  after_create_commit :broadcast_notification
+  after_create :broadcast_notification
 
   def broadcast_notification
-    payload = {
-      id: id,
-      post_id: post.id,
-      user_name: user.first_name,
-      content: content,
-      comment_reactions: comment_reactions
-    }
-
-    ActionCable.server.broadcast("post:#{post_id}:comments", payload)
+    # My thought process over here was we notify users real time only when the new comment is added to the post
+    # So braodcasted message in after_create callback
+    ActionCable.server.broadcast("post:#{post_id}:comments", self)
   end
 end
 

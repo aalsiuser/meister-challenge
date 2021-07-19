@@ -1,5 +1,6 @@
+# Controller for creation, updation and deletion of comments
 class Api::V1::CommentsController < ApiController
-  include CommentHelper
+  include CommentsHelper
 
   before_action :set_comment, only: [:destroy]
 

@@ -12,7 +12,7 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
   subject(:response_body) { JSON.parse(response.body) }
 
   describe 'GET comments#index' do
-    it "returns http success" do
+    it 'returns http success' do
       get :index, params: { post_id: author_post.id }
 
       expect(response).to have_http_status(:success)
@@ -20,18 +20,18 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
 
     it 'returns comments of post' do
       get :index, params: { post_id: author_post.id }
-      expect(response_body.all?{ |p| p['post_id'] == author_post.id }).to eq(true)
+      expect(response_body.all? { |p| p['post_id'] == author_post.id }).to eq(true)
     end
   end
 
-  describe "POST comments#create" do
+  describe 'POST comments#create' do
     context 'with required params' do
-      it "returns created" do
+      it 'returns https status created' do
         post :create, params: { post_id: author_post.id, comment: { user_id: author.id, post_id: author_post.id, content: comment1.content} }
         expect(response).to have_http_status(:created)
       end
 
-      it "increments post count by 1" do
+      it 'increments comment count by 1' do
         expect { 
                   post :create, 
                   params: { post_id: author_post.id, comment: { user_id: author.id, post_id: author_post.id, content: comment1.content} } 
@@ -40,18 +40,18 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
     end
   end
 
-  describe "PATCH comments#update" do
+  describe 'PATCH comments#update' do
     context 'with required params' do
-      it "returns updated content" do
-        patch :update, params: { id: comment1.id, comment: {  user_id: author.id, post_id: author_post.id, content: 'Test Content'} }
+      it 'returns updated content' do
+        patch :update, params: { id: comment1.id, comment: { user_id: author.id, post_id: author_post.id, content: 'Test Content'} }
         expect(response).to have_http_status(:ok)
-        expect(response_body['content']).to eq("Test Content")
+        expect(response_body['content']).to eq('Test Content')
       end
     end
 
     context 'with params content is being missed' do
       it 'returns 422 unprocessable_entity' do
-        patch :update, params: { id: comment1.id, comment: {  user_id: author.id, post_id: author_post.id } }
+        patch :update, params: { id: comment1.id, comment: { user_id: author.id, post_id: author_post.id } }
         expect(response.status).to eq(422)
         expect(response_body['message']).to eq("CommentForm: option 'content' is required")
       end
@@ -68,7 +68,7 @@ RSpec.describe Api::V1::CommentsController, type: :controller do
 
     context 'with incorrect post id' do
       it 'returns http not found' do
-        delete :destroy, params: { id: 1000}
+        delete :destroy, params: { id: 1000 }
         expect(response).to have_http_status(:not_found)
       end
     end
