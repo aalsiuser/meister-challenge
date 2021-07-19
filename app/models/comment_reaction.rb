@@ -1,7 +1,11 @@
 class CommentReaction < ApplicationRecord
-  validates_presence_of :reaction_type
   belongs_to :comment, counter_cache: true
   belongs_to :user
+
+  validates_presence_of :reaction_type
+  # User has_one Comment Reaction in scope of Comment
+  # So user has only one Comment Reaction for one comment
+  validates :user_id, uniqueness: { scope: :comment_id }
 
   enum reaction_type: %i[like smile thumbs_up]
 

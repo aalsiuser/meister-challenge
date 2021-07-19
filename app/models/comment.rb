@@ -1,9 +1,10 @@
 class Comment < ApplicationRecord
-  validates_presence_of :content
 
   belongs_to :user
   belongs_to :post, counter_cache: true
   has_many :comment_reactions, dependent: :destroy
+  
+  validates_presence_of :content
 
   after_create :broadcast_notification
 

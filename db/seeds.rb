@@ -46,14 +46,13 @@ CommentReaction.create(
                         [
                           { user_id: 5, comment_id: 1, reaction_type: 0 },
                           { user_id: 5, comment_id: 2, reaction_type: 1 },
-                          { user_id: 6, comment_id: 3, reaction_type: 2 },
-                          { user_id: 6, comment_id: 4, reaction_type: 0 },
+                          { user_id: 5, comment_id: 3, reaction_type: 2 },
                           { user_id: 5, comment_id: 4, reaction_type: 1 },
                           { user_id: 5, comment_id: 7, reaction_type: 2 },
-                          { user_id: 6, comment_id: 8, reaction_type: 1 },
-                          { user_id: 5, comment_id: 3, reaction_type: 2 },
+                          { user_id: 6, comment_id: 3, reaction_type: 2 },
+                          { user_id: 6, comment_id: 1, reaction_type: 1 },
                           { user_id: 6, comment_id: 2, reaction_type: 1 },
-                          { user_id: 5, comment_id: 1, reaction_type: 2 },
+                          { user_id: 6, comment_id: 4, reaction_type: 0 },
                           { user_id: 6, comment_id: 7, reaction_type: 0 },
                           { user_id: 6, comment_id: 8, reaction_type: 1 }
                         ]
