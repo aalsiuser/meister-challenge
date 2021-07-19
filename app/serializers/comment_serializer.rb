@@ -1,6 +1,6 @@
 # Comment Serializer to serialize data while sending payload to Frontend
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :post_id, :content, :user_name
+  attributes :id, :post_id, :content, :user_name, :comment_reactions_count
 
   def user_name
     object.user.first_name

@@ -1,6 +1,6 @@
 class CommentReaction < ApplicationRecord
   validates_presence_of :reaction_type
-  belongs_to :comment
+  belongs_to :comment, counter_cache: true
   belongs_to :user
 
   enum reaction_type: %i[like smile thumbs_up]
