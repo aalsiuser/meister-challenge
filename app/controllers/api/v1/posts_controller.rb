@@ -5,7 +5,7 @@ class Api::V1::PostsController < ApiController
 
   # Get /api/v1/posts
   def index
-    posts = User.find_by(id: params[:author_id]).posts
+    posts = User.find(params[:author_id]).posts
     render json: posts
   end
 
