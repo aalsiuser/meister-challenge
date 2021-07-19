@@ -4,6 +4,12 @@ class CommentReaction < ApplicationRecord
   belongs_to :user
 
   enum reaction_type: %i[like smile thumbs_up]
+
+  after_save :broadcast_notification
+
+  def broadcast_notification
+    ActionCable.server.broadcast("comment:#{comment_id}:reactions", self)
+  end
 end
 
 # == Schema Information
@@ -13,7 +19,7 @@ end
 #  id         :bigint           not null, primary key
 #  user_id    :bigint
 #  comment_id :bigint
-#  type       :string
+#  reaction_type       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
