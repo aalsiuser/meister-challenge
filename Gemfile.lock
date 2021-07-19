@@ -77,6 +77,10 @@ GEM
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     dry-initializer (3.0.4)
     erubi (1.10.0)
     factory_bot (6.2.0)
@@ -189,6 +193,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   annotate
   bootsnap (>= 1.4.4)
+  dotenv-rails
   dry-initializer
   factory_bot_rails
   faker
