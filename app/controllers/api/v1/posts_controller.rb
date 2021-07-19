@@ -1,10 +1,11 @@
+# Controller handles request regarding Post creation, Updation, Deletion and Listing them according to user.
 class Api::V1::PostsController < ApiController
   include PostsHelper
-  before_action :set_post, only: [:show, :destroy]
+  before_action :set_post, only: %i[show destroy]
 
   # Get /api/v1/posts
   def index
-    posts = User.find_by(id: params[:user_id]).posts
+    posts = User.find_by(id: params[:author_id]).posts
     render json: posts
   end
 
@@ -35,7 +36,7 @@ class Api::V1::PostsController < ApiController
   private
 
   def post_params
-    params.require(:post).permit(:id, :title, :content, :summary, :user_id).to_h.symbolize_keys
+    params.require(:post).permit(:id, :title, :content, :summary, :author_id).to_h.symbolize_keys
   end
 
   def set_post

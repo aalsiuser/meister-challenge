@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+# Form for creating and udpating post
 class PostForm
   extend Dry::Initializer[undefined: false]
 
@@ -5,7 +7,7 @@ class PostForm
   option :title
   option :content
   option :summary
-  option :user_id
+  option :author_id
 
   # Optional Attributes
   option :id, optional: true
@@ -14,9 +16,9 @@ class PostForm
 
   def save
     @record = build_post
-     # Assign attributes for post
-     assign_attributes
-     @record.save!
+    # Assign attributes for post
+    assign_attributes
+    @record.save!
   end
 
   private
@@ -30,7 +32,7 @@ class PostForm
       title: title,
       content: content,
       summary: summary,
-      author_id: user_id
+      author_id: author_id
     )
   end
 end

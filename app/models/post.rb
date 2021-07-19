@@ -1,8 +1,9 @@
+# Post model with its validations on columns and associations
 class Post < ApplicationRecord
   validates_presence_of :title, :content, :summary
   validates_uniqueness_of :title
 
-  belongs_to :user, foreign_key: :author_id
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
   has_many :comments, dependent: :destroy
 
   enum status: %i[draft inprogress completed published]
@@ -10,6 +11,7 @@ class Post < ApplicationRecord
   after_update :broadcast_notification
 
   def broadcast_notification
+    # Broadcast updated post object to below channel
     ActionCable.server.broadcast("post_#{id}", self)
   end
 end
