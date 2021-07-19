@@ -28,6 +28,14 @@ module Error
       rescue_from ArgumentError do |e|
         respond(:argument_error, 422, e.to_s)
       end
+
+      rescue_from RuntimeError do |e|
+        respond(:runtime_error, 422, e.to_s)
+      end
+
+      rescue_from KeyError do |e|
+        respond(:runtime_error, 422, e.to_s)
+      end
     end
 
     private
