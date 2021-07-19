@@ -31,11 +31,15 @@ gem 'active_model_serializers', '~> 0.10.0'
 # https://github.com/dry-rb/dry-initializer
 gem 'dry-initializer'
 
+gem 'redis'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'annotate'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
