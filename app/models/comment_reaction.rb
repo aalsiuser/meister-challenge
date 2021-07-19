@@ -8,6 +8,7 @@ class CommentReaction < ApplicationRecord
   after_save :broadcast_notification
 
   def broadcast_notification
+    # My thought process over her was we broadcast newly reaction for comment based on comment id
     ActionCable.server.broadcast("comment:#{comment_id}:reactions", self)
   end
 end

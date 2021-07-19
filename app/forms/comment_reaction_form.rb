@@ -10,7 +10,7 @@ class CommentReactionForm
 
   def save
     @record = build_comment_reaction
-     # Assign attributes for Comment Reaction
+    # Assign attributes for Comment Reaction
     assign_attributes
     @record.save!
   end
@@ -21,7 +21,6 @@ class CommentReactionForm
     CommentReaction.new
   end
 
-  # TODO: Need to add condition for post_id
   def assign_attributes
     @record.assign_attributes(
       user_id: user_id,

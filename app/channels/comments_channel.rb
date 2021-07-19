@@ -1,3 +1,4 @@
+# Comment channel to pub/sub updates regarding comment object
 class CommentsChannel < ApplicationCable::Channel
   def follow(data)
     # when new comment is created we get post_id in params

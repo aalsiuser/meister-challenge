@@ -1,3 +1,4 @@
+# Controller for creation and deletion of Comment Reactions
 class Api::V1::ReactionsController < ApiController
   include CommentReactionHelper
 
