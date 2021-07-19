@@ -21,7 +21,7 @@
 ## Implementation
 - I like versioning of api's as it helps in keep them consistent and can be backward compatabible.
 - So added new namespace v1 and added posts, comments and reactions controller.
-- Added nested routes with `shallow: true` option so that deep nested routes can be avaoided.(https://guides.rubyonrails.org/routing.html#shallow-nesting)
+- Added nested routes with **shallow: true** option so that deep nested routes can be avaoided.(https://guides.rubyonrails.org/routing.html#shallow-nesting)
 - Inlcuded api_error_module for all the api's so that error notification mechanism will be consistent throught the api's.
 - Used **Form object design pattern** for creating and updating different records.
 - Added concerns accordingly for the posts, comments and reactions controller.
@@ -29,7 +29,7 @@
 - Added 3 different channels for posts, comments and comment reaction for real time update.
 - Broadcasted the updated record via different callbacks in each model.
 - Added integration test cases for posts, comments and reactions controller.
-- Implemented counter cache for posts and comments table, which can help for getting count of comments and reactions and can avoid sql queries.
+- Implemented **counter cache** for posts and comments table, which can help for getting count of comments and reactions and can avoid sql queries.
 
 # Gems Used
 - **dry-initializer** - https://github.com/dry-rb/dry-initializer
