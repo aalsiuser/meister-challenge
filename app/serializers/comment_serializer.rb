@@ -1,5 +1,9 @@
 class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :post_id, :content
+  attributes :id, :post_id, :content, :user_name
+
+  def user_name
+    object.user.first_name
+  end
 
   has_many :comment_reactions do
     object.comment_reactions.map do |cr|
