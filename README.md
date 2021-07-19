@@ -30,6 +30,7 @@
 - Broadcasted the updated record via different callbacks in each model.
 - Added integration test cases for posts, comments and reactions controller.
 - Implemented **counter cache** for posts and comments table, which can help for getting count of comments and reactions and can avoid sql queries.
+- User has_one association with comment_reactions in the scope of customer. So User can only add one reaction to particular comment.
 
 # Gems Used
 - **dry-initializer** - https://github.com/dry-rb/dry-initializer
