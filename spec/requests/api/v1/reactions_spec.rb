@@ -5,10 +5,12 @@ RSpec.describe Api::V1::ReactionsController, type: :controller do
   let!(:author) { create(:user) }
   let!(:current_post) { create(:post, author_id: author.id) }
   let!(:user) { create(:user) }
-  let!(:comment1) { create(:comment, post_id: current_post.id, user_id: user.id)}
   let!(:user2) { create(:user) }
+  let!(:comment1) { create(:comment, post_id: current_post.id, user_id: user.id)}
+  let!(:comment2) { create(:comment, post_id: current_post.id, user_id: user2.id)}
+  let!(:comment3) { create(:comment, post_id: current_post.id, user_id: user2.id)}
   let!(:smile_reaction) { create(:comment_reaction, user_id: user.id, comment_id: comment1.id, reaction_type: 'like')}
-  let!(:thumsup_reaction) { create(:comment_reaction, user_id: user2.id, comment_id: comment1.id, reaction_type: 'smile')}
+  let!(:thumsup_reaction) { create(:comment_reaction, user_id: user.id, comment_id: comment2.id, reaction_type: 'smile')}
 
   subject(:response_status) { response.status }
   subject(:response_body) { JSON.parse(response.body) }
@@ -23,7 +25,7 @@ RSpec.describe Api::V1::ReactionsController, type: :controller do
 
       it 'increments Comment Reaction count by 1' do
         expect { 
-          post :create, params: { comment_id: comment1.id, reaction: { user_id: user.id, comment_id: comment1.id, reaction_type: 'like'} }
+          post :create, params: { comment_id: comment1.id, reaction: { user_id: user2.id, comment_id: comment3.id, reaction_type: 'like'} }
                }.to change{ CommentReaction.count }.by(1)
       end
     end

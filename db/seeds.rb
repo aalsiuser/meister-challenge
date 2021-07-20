@@ -18,11 +18,11 @@ User.create(
 
 Post.create(
             [
-              { title: 'Blog Title 1', content: 'Content 1', summary: 'Summary 1', author_id: 1, status: 3 },
-              { title: 'Blog Title 2', content: 'Content 2', summary: 'Summary 2', author_id: 2, status: 2 },
-              { title: 'Blog Title 3', content: 'Content 3', summary: 'Summary 3', author_id: 2, status: 3 },
-              { title: 'Blog Title 4', content: 'Content 4', summary: 'Summary 4', author_id: 3, status: 2 },
-              { title: 'Blog Title 5', content: 'Content 5', summary: 'Summary 5', author_id: 3, status: 3 }
+              { title: 'Blog Title 1', content: Faker::Lorem.paragraph_by_chars, summary: 'Summary 1', author_id: 1, status: 3 },
+              { title: 'Blog Title 2', content: Faker::Lorem.paragraph_by_chars, summary: 'Summary 2', author_id: 2, status: 2 },
+              { title: 'Blog Title 3', content: Faker::Lorem.paragraph_by_chars, summary: 'Summary 3', author_id: 2, status: 3 },
+              { title: 'Blog Title 4', content: Faker::Lorem.paragraph_by_chars, summary: 'Summary 4', author_id: 3, status: 2 },
+              { title: 'Blog Title 5', content: Faker::Lorem.paragraph_by_chars, summary: 'Summary 5', author_id: 3, status: 3 }
             ]
            )
 
